@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Project 9 – Countdown & Slideshow</title>
+    <link rel="stylesheet" href="CSS/main.css">
+</head>
+
+<body>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+
+        <div class="slide fade">
+            <img src="images/pic1.jpg" style="width:100%">
+        </div>
+
+        <div class="slide fade">
+            <img src="images/pic2.jpg" style="width:100%">
+        </div>
+
+        <div class="slide fade">
+            <img src="images/pic3.jpg" style="width:100%">
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <!-- Countdown section -->
+    <p>Enter number of seconds:</p>
+    <input id="seconds" type="number">
+
+    <button onclick="countdown()">Start Countdown</button>
+
+    <p id="timer"></p>
+
+    <script src="JS/main.js"></script>
+</body>
+</html>
+

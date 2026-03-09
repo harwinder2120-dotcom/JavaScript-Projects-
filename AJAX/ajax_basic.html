@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Basic AJAX Demo</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="main">
+            <h2>Get The Latest Content:</h2>
+
+            <!-- This div contains the button AND will later display the AJAX-loaded content -->
+            <div class="content" id="content">
+
+                <!-- This button triggers the AJAX request when clicked -->
+                <input type="button" class="button" value="Get Content" id="btn_content" onclick="getContent();"/>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            // This function is called when the user clicks the "Get Content" button
+            function getContent() {
+
+                // Create a new XMLHttpRequest object (this is the core of AJAX)
+                var xhttp = new XMLHttpRequest();
+
+                // This function runs every time the request state changes
+                xhttp.onreadystatechange = function() {
+
+                    /* 
+                        readyState 4 means the request is complete
+                        status 200 means the request was successful
+                        When both are true, we insert the loaded content into the page
+                    */
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        // Insert the text from content.html into the div with id="content"
+                        document.getElementById("content").innerHTML = this.responseText;
+                    }
+                };
+
+                // Prepare the AJAX request: GET content.html asynchronously (true)
+                xhttp.open("GET", "content.html", true);
+
+                // Send the request to the server
+                xhttp.send();
+            }
+
+        </script>
+    </body>
+</html>
